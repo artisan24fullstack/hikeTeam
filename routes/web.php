@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\HikeController;
 use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\HikeController as PublicHikeController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [HomeController::class, 'index']);
+
+
+$idRegex = '[0-9]+';
+$slugRegex = '[0-9a-z\-]+';
+
+Route::get('/hikes', [PublicHikeController::class, 'index'])->name('hike.index');
+Route::get('/hikes/{slug}-{hike}', [PublicHikeController::class, 'show'])->name('hike.show')->where([
+    'hike' => $idRegex,
+    'slug' => $slugRegex
+]);
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
-
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('hike', HikeController::class)->except(['show']);
