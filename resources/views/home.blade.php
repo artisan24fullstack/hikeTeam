@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="container">
-        <h2>Les hikes</h2>
+        <h2>Les derniers hikes</h2>
         <div class="row">
             @foreach ($hikes as $hike)
                 <div class='col'>

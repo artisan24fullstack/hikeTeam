@@ -37,7 +37,6 @@ class HikeController extends Controller
 
     public function show(string $slug, Hike $hike)
     {
-        /*
         $expectedSlug = $hike->getSlug();
 
         if ($slug !== $expectedSlug) {
@@ -47,6 +46,5 @@ class HikeController extends Controller
         return view('hike.show', [
             'hike' => $hike
         ]);
-        */
     }
 }
