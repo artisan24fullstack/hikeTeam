@@ -1,6 +1,6 @@
 @extends('base')
 
-@section('title', 'Tous nos biens')
+@section('title', 'Tous les hikes')
 
 
 @section('content')
@@ -9,6 +9,8 @@
     <div class="bg-light p-5 mb-5 text-center">
         <form action="" method="get" class="container d-flex gap-2">
 
+            <input type="number" placeholder="distance" class="form-control" name="distance"
+                value="{{ $input['distance'] ?? '' }}">
 
             <button class="btn btn-primary btn-sm flex-grow-0">Rechercher</button>
         </form>
@@ -22,7 +24,7 @@
 
             @empty
                 <div class='col'>
-                    Aucun bien ne correspond à votre recherche
+                    Aucun hike ne correspond à votre recherche
                 </div>
             @endforelse
         </div>

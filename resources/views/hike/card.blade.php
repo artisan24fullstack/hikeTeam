@@ -4,7 +4,7 @@
             <a href="{{ route('hike.show', ['slug' => $hike->getSlug(), 'hike' => $hike]) }}">{{ $hike->name }}</a>
         </h5>
         <p class='card-text'>
-            {{ $hike->distance }}km - {{ $hike->duration }}
+            {{ $hike->distance }} km - {{ $hike->duration }} min
         </p>
         <p class='card-text'>
             {{ $hike->description }}
