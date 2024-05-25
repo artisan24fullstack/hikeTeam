@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\HikeController;
+use App\Http\Controllers\Admin\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,5 @@ Route::get('/', function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('hike', HikeController::class)->except(['show']);
+    Route::resource('tag', TagController::class)->except(['show']);
 });

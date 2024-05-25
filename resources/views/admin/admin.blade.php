@@ -36,6 +36,10 @@
                         <a @class(['nav-link', 'active' => str_contains($routeName, 'hike.')]) aria-current="page" href="{{ route('admin.hike.index') }}">Gérer
                             les hikes</a>
                     </li>
+                    <li class="nav-item">
+                        <a @class(['nav-link', 'active' => str_contains($routeName, 'tag.')]) aria-current="page" href="{{ route('admin.tag.index') }}">Gérer
+                            les tags</a>
+                    </li>
                 </ul>
 
             </div>
