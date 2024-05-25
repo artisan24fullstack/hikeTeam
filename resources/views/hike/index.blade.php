@@ -12,6 +12,11 @@
             <input type="number" placeholder="distance" class="form-control" name="distance"
                 value="{{ $input['distance'] ?? '' }}">
 
+            <input type="number" placeholder="duration" class="form-control" name="duration"
+                value="{{ $input['duration'] ?? '' }}">
+
+            <input placeholder="Mot clef" class="form-control" name="name" value="{{ $input['name'] ?? '' }}">
+
             <button class="btn btn-primary btn-sm flex-grow-0">Rechercher</button>
         </form>
     </div>

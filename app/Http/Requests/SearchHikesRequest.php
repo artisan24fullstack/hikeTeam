@@ -22,8 +22,9 @@ class SearchHikesRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'distance' => ['numeric', 'gte:0', 'nullable']
-
+            'distance' => ['numeric', 'gte:0', 'nullable'],
+            'duration' => ['numeric', 'gte:0', 'nullable'],
+            'name' => ['string', 'nullable']
         ];
     }
 }
