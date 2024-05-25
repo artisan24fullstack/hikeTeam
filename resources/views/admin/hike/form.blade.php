@@ -49,6 +49,13 @@
             'name' => 'description',
             'value' => $hike->description,
         ])
+        @include('shared.select', [
+            'label' => 'Tags',
+            'name' => 'tags',
+            'value' => $hike->tags()->pluck('id'),
+            'multiple' => true,
+            'tags' => $tags,
+        ])
 
         <div>
             <button class="btn btn-primary">

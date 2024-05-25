@@ -54,7 +54,15 @@
         @yield('content')
 
     </div>
-
+    <script>
+        // Initialize Tom Select with multiple selections enabled
+        let selectElement = document.querySelector('select[multiple]');
+        let settings = {
+            plugins: ['remove_button'], // Optional: Enable remove button plugin
+            // Add any other settings you need
+        };
+        new TomSelect(selectElement, settings);
+    </script>
 </body>
 
 </html>

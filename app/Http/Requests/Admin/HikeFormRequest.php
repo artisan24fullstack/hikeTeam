@@ -27,6 +27,7 @@ class HikeFormRequest extends FormRequest
             'duration' => 'required|integer|min:0',
             'elevation_gain' => 'required|integer|min:0',
             'description' => 'required|string',
+            'tags' => ['array', 'exists:tags,id', 'required']
         ];
     }
 }

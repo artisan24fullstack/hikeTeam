@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\HikeFormRequest;
 use App\Models\Hike;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -26,7 +27,8 @@ class HikeController extends Controller
     public function create()
     {
         return View('admin.hike.form', [
-            'hike' => new Hike()
+            'hike' => new Hike(),
+            'tags' => Tag::pluck('name', 'id')
         ]);
     }
 
@@ -36,6 +38,8 @@ class HikeController extends Controller
     public function store(HikeFormRequest $request)
     {
         $hike = Hike::create($request->validated());
+        $hike->tags()->sync($request->validated('tags'));
+
         return to_route('admin.hike.index')->with('success', 'Le hike a bien été créé');
     }
 
@@ -45,7 +49,9 @@ class HikeController extends Controller
     public function edit(Hike $hike)
     {
         return View('admin.hike.form', [
-            'hike' => $hike
+            'hike' => $hike,
+            'tags' => Tag::pluck('name', 'id')
+
         ]);
     }
 
@@ -55,6 +61,7 @@ class HikeController extends Controller
     public function update(HikeFormRequest $request, Hike $hike)
     {
         $hike->update($request->validated());
+        $hike->tags()->sync($request->validated('tags'));
         return to_route('admin.hike.index')->with('success', 'Le hike a bien été modifié');
     }
 
