@@ -33,7 +33,7 @@ Route::get('/hikes/{slug}-{hike}', [PublicHikeController::class, 'show'])->name(
 //Route::get('/search/tags/{tags}', [PublicHikeController::class, 'searchByTags'])->name('search.tags');
 
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('test');
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {
