@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title') | Test </title>
+    <title>@yield('title') | Larahikes </title>
     <!--
     <link href="../assets/dist/css/" rel="stylesheet">
     -->
@@ -172,17 +172,12 @@
                 </button>
 
                 <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-                    <a class="navbar-brand col-lg-3 me-0" href="#">Larahikes</a>
+                    <a class="navbar-brand col-lg-3 me-0" href="{{ route('hike.index') }}">Larahikes</a>
                     <ul class="navbar-nav col-lg-6 justify-content-lg-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
+
                     </ul>
                     <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                        <a href="login.html"><button class="btn btn-primary">Register | Sign in</button></a>
+                        <a href="#"><button class="btn btn-primary">Register | Sign in</button></a>
                     </div>
                 </div>
             </div>
@@ -202,7 +197,7 @@
                             trails offers something for everyone. Explore breathtaking landscapes, from serene forest
                             paths to challenging mountain climbs.</p>
                         <p>
-                            <a href="login.html" class="btn btn-primary my-2">Register now</a>
+                            <a href="#" class="btn btn-primary my-2">Register now</a>
                         </p>
                     </div>
                 </div>
@@ -234,6 +229,13 @@
                 </div>
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    @foreach ($hikes as $hike)
+                        <div class='col'>
+                            @include('hike.card')
+                        </div>
+                    @endforeach
+                    {{--
+
                     <div class="col">
                         <div class="card shadow-sm">
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -256,7 +258,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col">
                         <div class="card shadow-sm">
                             <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
@@ -443,6 +444,8 @@
                             </div>
                         </div>
                     </div>
+--}}
+
                 </div>
             </div>
         </section>

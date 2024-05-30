@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/welcome', [HomeController::class, 'test']);
 
 
 $idRegex = '[0-9]+';
@@ -32,10 +33,11 @@ Route::get('/hikes/{slug}-{hike}', [PublicHikeController::class, 'show'])->name(
 
 //Route::get('/search/tags/{tags}', [PublicHikeController::class, 'searchByTags'])->name('search.tags');
 
+/*
 Route::get('/welcome', function () {
     return view('test');
 });
-
+*/
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('hike', HikeController::class)->except(['show']);
     Route::resource('tag', TagController::class)->except(['show']);

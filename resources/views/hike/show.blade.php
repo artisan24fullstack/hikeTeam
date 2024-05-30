@@ -8,7 +8,7 @@
 
         <h1>{{ $hike->name }} </h1>
 
-        <div class="text-primary" style="font-size: 1.4rem;">
+        <div>
             {{ $hike->description }}
         </div>
 

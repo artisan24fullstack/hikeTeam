@@ -10,7 +10,13 @@ class HomeController extends Controller
 
     public function index()
     {
-        $hikes = Hike::orderBy('created_at', 'desc')->limit(4)->get();
+        $hikes = Hike::orderBy('created_at', 'desc')->get();
         return view('home', ['hikes' => $hikes]);
+    }
+
+    public function test()
+    {
+        $hikes = Hike::orderBy('created_at', 'desc')->get();
+        return view('test', ['hikes' => $hikes]);
     }
 }

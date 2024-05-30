@@ -38,6 +38,7 @@ class HikeController extends Controller
         ]);
     }
 
+
     /*
     public function searchByTags(Request $request)
     {
