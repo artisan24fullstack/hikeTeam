@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') | Larahikes </title>
-    @vite(['resources/css/bootstrap.min.css', 'resources/js/bootstrap.bundle.min.js'])
+    @vite(['resources/css/bootstrap.min.css', 'resources/js/bootstrap.bundle.min.js', 'resources/js/color-modes.js'])
 
     <style>
         .bd-placeholder-img {
@@ -128,6 +128,80 @@
             opacity: 0
         }
 
+        body {
+            background-color: #121212;
+            /* Couleur de fond pour le mode sombre */
+            color: #e0e0e0;
+            /* Couleur du texte pour le mode sombre */
+            min-height: 100vh;
+        }
+
+        .full-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+            /* Augmentation de la marge intérieure */
+            height: calc(100vh - 100px);
+            /* Ajustement de la hauteur de la partie principale */
+        }
+
+        .hike-image {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            /* Augmentation supplémentaire de la taille de l'image */
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+
+        .hike-image:hover {
+            transform: scale(1.05);
+        }
+
+        .tag {
+            margin-right: 10px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tag:hover {
+            background-color: #343a40;
+        }
+
+        .back-button {
+            margin-bottom: 20px;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #333333;
+            transform: scale(1.05);
+        }
+
+        .card.detail {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background-color: #1e1e1e;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-weight: 700;
+        }
+
+        .card-text {
+            margin-bottom: 20px;
+            /* Ajout d'espace entre la description et les tags */
+        }
+
         @layer demo {
             button {
                 all: unset;
@@ -136,7 +210,7 @@
     </style>
 </head>
 
-<body>
+<body data-bs-theme="dark">
     @php
         $routeName = request()->route()->getName();
     @endphp
