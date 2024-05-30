@@ -25,8 +25,8 @@ class SearchHikesRequest extends FormRequest
             'distance' => ['numeric', 'gte:0', 'nullable'],
             'duration' => ['numeric', 'gte:0', 'nullable'],
             'name' => ['string', 'nullable'],
-            //'tags' => 'nullable|array',
-            //'tags.*' => 'exists:tags,id', // Assuming you have a table named "tags" with columns "id"
+            'tags' => 'nullable|array',
+            'tags.*' => 'exists:tags,id', // Assuming you have a table named "tags" with columns "id"
         ];
     }
 }

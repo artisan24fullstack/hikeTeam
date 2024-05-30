@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title') | Larahikes </title>
     @vite(['resources/css/bootstrap.min.css', 'resources/js/bootstrap.bundle.min.js', 'resources/js/color-modes.js'])
-
+    <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -309,6 +310,15 @@
             // $rootElement.scrollTop = $body.scrollTop = 0;
             window.scrollTo(0, 0);
         };
+    </script>
+    <script>
+        // Initialize Tom Select with multiple selections enabled
+        let selectElement = document.querySelector('select[multiple]');
+        let settings = {
+            plugins: ['remove_button'], // Optional: Enable remove button plugin
+            // Add any other settings you need
+        };
+        new TomSelect(selectElement, settings);
     </script>
 </body>
 

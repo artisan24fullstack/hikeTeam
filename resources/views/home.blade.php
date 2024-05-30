@@ -25,6 +25,7 @@
     <section class="album py-5 bg-body-tertiary">
         <div class="container">
 
+            {{--
             <div class="btn-group mb-3" role="group" aria-label="Basic radio toggle button group">
                 <input type="radio" class="btn-check" name="btnradio" id="btnradioall" autocomplete="off">
                 <label class="btn btn-outline-primary" for="btnradioall">All</label>
@@ -45,6 +46,7 @@
                 <label class="btn btn-outline-primary" for="btnradio1">Tag 5</label>
             </div>
 
+            --}}
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach ($hikes as $hike)
                     <div class='col'>

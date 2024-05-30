@@ -28,16 +28,35 @@ class HikeController extends Controller
             $query = $query->where('name', 'like', "%{$request->validated('name')}%");
         }
 
+        /* New tag filter
+        $tagIds = $request->validated('tags'); // Assuming 'tags' is an array of tag IDs
+        if (!empty($tagIds)) {
+            $query->whereHas('tags', function ($query) use ($tagIds) {
+                $query->whereIn('id', $tagIds);
+            });
+        }
+        */
+        // Handling tags as an array
+        if (!empty($request->validated('tags'))) {
+            foreach ($request->validated('tags') as $tagId) {
+                $query->orWhereHas('tags', function ($query) use ($tagId) {
+                    $query->where('id', $tagId);
+                });
+            }
+        }
+
+        $query->orderBy('created_at', 'desc');
+
+        $tags = Tag::pluck('name', 'id');
+
 
         return View('hike.index', [
-
             'hikes' => $query->paginate(16),
             'input' => $request->validated(),
-            //'tags' => Tag::pluck('name', 'id')
+            'tags' => $tags
 
         ]);
     }
-
 
     /*
     public function searchByTags(Request $request)
