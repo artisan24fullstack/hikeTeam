@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\SearchHikesRequest;
+use App\Models\Tag;
 use App\Models\Hike;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Requests\SearchHikesRequest;
 
 class HikeController extends Controller
 {
@@ -26,15 +27,51 @@ class HikeController extends Controller
 
             $query = $query->where('name', 'like', "%{$request->validated('name')}%");
         }
-        //$hikes = Hike::paginate(16);
+
+
         return View('hike.index', [
-            //'hikes' => $hikes
+
             'hikes' => $query->paginate(16),
-            'input' => $request->validated()
+            'input' => $request->validated(),
+            //'tags' => Tag::pluck('name', 'id')
 
         ]);
     }
 
+    /*
+    public function searchByTags(Request $request)
+    {
+        $tags = explode(',', $request->input('tags')); // Assuming tags are comma-separated
+        $hikes = Hike::whereHas('tags', function ($query) use ($tags) {
+            foreach ($tags as $tag) {
+                $query->orWhere('name', 'like', "%{$tag}%");
+            }
+        })->get();
+
+        return view('search.results', compact('hikes'));
+
+
+        if ($request->has('tags')) {
+            $tagIds = $request->validated('tags')['*']; // Assuming 'tags' is an array of IDs
+            $query->whereIn('id', $tagIds); // Assuming 'id' is the foreign key in 'hikes' referencing 'tags'
+        }
+
+        // Check if 'tags' input is present
+        if ($request->filled('tags')) {
+            $tagIds = $request->input('tags');
+            $query->whereIn('id', $tagIds); // Assuming 'id' is the foreign key in 'hikes' referencing 'tags'
+        }
+        $hikes = $query->paginate(16);
+
+        $tags = Tag::select('id', 'name')->get();
+
+        return view('hike.index', [
+            'hikes' => $hikes,
+            'input' => $request->validated(),
+            'tags' => $tags, // Pass the tags to the view
+        ]);
+    }
+    */
     public function show(string $slug, Hike $hike)
     {
         $expectedSlug = $hike->getSlug();

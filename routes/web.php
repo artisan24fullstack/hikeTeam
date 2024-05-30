@@ -29,6 +29,9 @@ Route::get('/hikes/{slug}-{hike}', [PublicHikeController::class, 'show'])->name(
     'slug' => $slugRegex
 ]);
 
+
+//Route::get('/search/tags/{tags}', [PublicHikeController::class, 'searchByTags'])->name('search.tags');
+
 Route::get('/welcome', function () {
     return view('welcome');
 });

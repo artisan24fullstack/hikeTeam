@@ -17,7 +17,7 @@ class HikeController extends Controller
     public function index()
     {
         return View('admin.hike.index', [
-            'hikes' => Hike::orderBy('create_at', 'desc')->paginate(25)
+            'hikes' => Hike::orderBy('created_at', 'desc')->paginate(25)
         ]);
     }
 
