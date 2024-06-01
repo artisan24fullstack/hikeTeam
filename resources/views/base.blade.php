@@ -249,12 +249,15 @@
                     <a class="navbar-brand col-lg-3 me-0" href="{{ url('/') }}">Larahikes</a>
                     <ul class="navbar-nav col-lg-6 justify-content-lg-center">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('hike.index') }}">Search
-                                hikes</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('hike.index') }}">
+                                Search Hikes
+                            </a>
                         </li>
                     </ul>
                     <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                        <a href="#"><button class="btn btn-primary">Register | Sign in</button></a>
+                        {{-- --}}
+                        <a href="{{ route('admin.hike.index') }}"><button class="btn btn-primary">Register | Sign
+                                in</button></a>
                     </div>
                 </div>
             </div>

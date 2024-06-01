@@ -36,11 +36,12 @@
                                 <td>{{ $hike->elevation_gain }}</td>
                             </tr>
                         </table>
-                        <div class="mt-4">
+                        <div>
                             @foreach ($hike->tags as $tag)
-                                <span class="badge bg-primary tag">{{ $tag->name }}</span>
+                                <small class="text-muted tag">{{ $tag->name }}</small>
                             @endforeach
                         </div>
+
                     </div>
                 </div>
             </div>

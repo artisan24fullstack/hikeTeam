@@ -34,7 +34,14 @@
             </div>
             <small class="text-body-secondary"><a
                     href="{{ route('hike.show', ['slug' => $hike->getSlug(), 'hike' => $hike]) }}">View
-                    details</a></small>
+                    details</a>
+            </small>
+        </div>
+        <hr />
+        <div>
+            @foreach ($hike->tags as $tag)
+                <small class="text-muted tag">{{ $tag->name }}</small>
+            @endforeach
         </div>
     </div>
 </div>
